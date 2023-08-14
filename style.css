@@ -6,7 +6,6 @@
    box-sizing: border-box;
 }
 html,body{
-    display: block;
     position: relative;
     height: 100%;
 }
@@ -38,22 +37,28 @@ html,body{
     background-repeat: no-repeat;
     background-position: center;
     width: 200px;
-    height: 150px;
+    height: 100px;
     position: absolute;
-    z-index: 2;
-
-
+    z-index: 1;
+    border: solid red;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
 }
 .mole{
     background-image: url(./images/mole.png);
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: center;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     position: relative;
     display: block;
-    top:5px
+    top:5px;
+    cursor: pointer;
+    border: solid;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    transition: .9s;
 }
 .gameBoard{
     position: absolute;
@@ -65,7 +70,7 @@ h1{
     font-size: 50px;
     font-weight: 100;
 }
-.skor{
+.score{
     text-align: center;
     position: relative;
     font-size: 50px;
@@ -90,4 +95,7 @@ button{
 button:hover{
     background-color:rgb(188, 173, 173) ;
     color:rgb(170, 42, 42) ;
+}
+.active{
+    top: -40px;
 }
