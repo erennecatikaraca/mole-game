@@ -3,27 +3,61 @@ const arrayMole=Array.from(mole);
 const button = document.querySelector("button");
 var score = document.querySelector("span");
 var duration = 1000;
-console.log(typeof(mole))
+var duration2 = 1000;
+
 
 function start(){
+    active()
+
+        
+    function active(){
+
+        let random = parseInt(Math.random()*mole.length);
+        let index = arrayMole[random];
+        
+
+        index.classList.add("active")
+        
+        setTimeout(again,duration2)
+    }; //active function
     
-    console.log(typeof(delay))
-    let random = parseInt(Math.random()*mole.length);
-    let index = arrayMole[random];
-    index.classList.add("active");
+    
+
+    
+
+    function again(){
+        arrayMole.map((item)=>{
+
+           let state = item.className.includes("active");
+
+           if(state){
+            item.classList.remove("active")
+           setTimeout(active,duration2);
+           }
+           
+            
+           
+          
+        }) // map function
+    };// again function
+    
 
     addEventListener("click", x=>{
         Element=x.target
-        if(Element.className.includes("active")){
-            Element.classList.remove("active")
-            score.innerHTML++;
-            setTimeout(start,duration);
-        }
-        if(score.innerHTML>1){
-            duration-=10;
-        }
-        console.log(duration-100)
-        
+        arrayMole.map(item=>{
+            
+            if(Element.className.includes("active") && Element==item){
+                Element.classList.remove("active")
+                score.innerHTML++;
+                duration-=10;
+                duration2-=15
+                setTimeout(start,duration);
+                console.log(duration , duration2)
+            }
+            // if(score.innerHTML>2 && Element==item){
+            // }
+            
+        })//map function-2
 
     }); //Event
     

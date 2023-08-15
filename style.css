@@ -37,19 +37,19 @@ html,body{
     background-repeat: no-repeat;
     background-position: center;
     width: 200px;
-    height: 100px;
+    height: 70px;
     position: absolute;
     z-index: 1;
     border: solid red;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
 }
 .mole{
     background-image: url(./images/mole.png);
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: center;
-    width: 100px;
+    width: 80px;
     height: 100px;
     position: relative;
     display: block;
@@ -58,7 +58,7 @@ html,body{
     border: solid;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
-    transition: .9s;
+    
 }
 .gameBoard{
     position: absolute;
@@ -98,4 +98,6 @@ button:hover{
 }
 .active{
     top: -40px;
+    transition: .5s;
+   
 }
