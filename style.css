@@ -22,7 +22,7 @@ html,body{
     padding-top: 150px;
     flex-direction: column;
 }
-.holeContainer{
+.moleContainer{
     position: relative;
     display: flex;
     justify-content: center;
@@ -36,39 +36,44 @@ html,body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 200px;
-    height: 70px;
+    width: 220px;
+    height: 80px;
     position: absolute;
     z-index: 1;
-    border: solid red;
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
+    
 }
 .mole{
     background-image: url(./images/mole.png);
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: center;
-    width: 80px;
+    width: 100px;
     height: 100px;
     position: relative;
     display: block;
-    top:5px;
     cursor: pointer;
-    border: solid;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
-    
 }
 .gameBoard{
     position: absolute;
-    top: 10px;
+    top: 5px;
+    background-color: rgba(164, 167, 164, 0.736);
+    border-radius: 100%;
+    padding-bottom: 5px;
+    background-image: url(./images/mole.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1{
     color: rgb(170, 42, 42);
     font-family: fantasy;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 100;
+    -webkit-text-stroke: 2px black;
 }
 .score{
     text-align: center;
@@ -96,8 +101,9 @@ button:hover{
     background-color:rgb(188, 173, 173) ;
     color:rgb(170, 42, 42) ;
 }
+
+
 .active{
-    top: -40px;
-    transition: .5s;
-   
+    transition:all .1s;
+    top: -40px;  
 }
