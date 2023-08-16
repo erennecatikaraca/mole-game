@@ -1,64 +1,85 @@
-const mole = document.querySelectorAll(".mole");
-const arrayMole=Array.from(mole);
+const moles = document.querySelectorAll(".mole");
+const arrayMoles=Array.from(moles);
 const button = document.querySelector("button");
-var score = document.querySelector("span");
+const live = document.querySelector(".live")
+const score = document.querySelector("span");
+
 var duration = 1000;
 var duration2 = 1000;
+var flag = true;
 
 
 function start(){
-    active()
+    
+
+    
+    if(live.innerHTML==0 || flag==false){
+        location.reload()
+        return;
+    }
+    up()
 
         
-    function active(){
+    function up(){
 
-        let random = parseInt(Math.random()*mole.length);
-        let index = arrayMole[random];
-        
-
+        let random = parseInt(Math.random()*moles.length);
+        let index = arrayMoles[random];
         index.classList.add("active")
-        
-        setTimeout(again,duration2)
-    }; //active function
+        setTimeout(down,duration2)
+        if(live.innerHTML==0){
+            return;
+           }
+           
+    }; //up function
     
     
 
     
 
-    function again(){
-        arrayMole.map((item)=>{
+    function down(){
+        arrayMoles.map((item)=>{
 
            let state = item.className.includes("active");
 
            if(state){
             item.classList.remove("active")
-           setTimeout(active,duration2);
-           }
+            live.innerHTML-=1;
+            setTimeout(up,duration2);
+            }
+            
+            else if(live.innerHTML==0){
+                alert("game over. Your score:"+"  "+JSON.stringify(score.innerHTML))
+                start()
+                return;
+                
+            }
            
             
            
           
         }) // map function
-    };// again function
+    };// down function
     
 
     addEventListener("click", x=>{
         Element=x.target
-        arrayMole.map(item=>{
+        arrayMoles.map(item=>{
             
             if(Element.className.includes("active") && Element==item){
+
                 Element.classList.remove("active")
                 score.innerHTML++;
                 duration-=10;
                 duration2-=15
-                setTimeout(start,duration);
-                console.log(duration , duration2)
+                setTimeout(up,duration);
             }
-            // if(score.innerHTML>2 && Element==item){
-            // }
+            
             
         })//map function-2
 
     }); //Event
-    
+
+   
+   flag = false;
+   
 }; // start function
