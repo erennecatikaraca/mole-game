@@ -13,11 +13,13 @@ function start(){
     
 
     
+    up()
     if(live.innerHTML==0 || flag==false){
         location.reload()
         return;
     }
-    up()
+    
+
 
         
     function up(){
@@ -42,9 +44,9 @@ function start(){
            let state = item.className.includes("active");
 
            if(state){
+            setTimeout(up,duration2);
             item.classList.remove("active")
             live.innerHTML-=1;
-            setTimeout(up,duration2);
             }
             
             else if(live.innerHTML==0){
@@ -65,8 +67,8 @@ function start(){
         Element=x.target
         arrayMoles.map(item=>{
             
-            if(Element.className.includes("active") && Element==item){
-
+            if(Element.className.includes("active") && Element===item){
+                
                 Element.classList.remove("active")
                 score.innerHTML++;
                 duration-=10;
